@@ -1,0 +1,34 @@
+cc_binary {audio_d,-o  capture_audio adpcm_decoder.c audiod.c,-o clearpair clearpair.c
+    name: "audio_d",
+    proprietary: true,
+    srcs: [
+        "dev_list.c",
+        "audio.c",
+        "main.c",
+        "dev_default.c",
+        "ADPCMDecoder.c",
+    ],
+    include_dirs: [
+        "system/core/include",
+        "frameworks/native/include/media/hardware",
+        
+    ],
+    cflags: [
+         "-Wall",
+         "-Wextra",
+         "-Werror",
+         "-Wno-sign-compare",
+         "-Wno-unused-function",
+         "-Wno-unused-variable",
+         "-Wno-unused-parameter",
+         "-Wno-missing-field-initializers",
+         "-Wno-undefined-inline",
+         "-std=c++11",
+         "-fno-short-enums",
+         "-pthread",
+         "-UNDEBUG",
+         "-DDEBUG",
+         
+    ],
+    compile_multilib: "both",
+}
